@@ -297,29 +297,59 @@ footer a:hover{color:var(--gold)}
 <div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'modal-impressum')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-impressum')">✕</button>
-    <p class="modal-label">Rechtliches</p>
-    <h2 class="modal-title">Impressum</h2>
+    <!-- Impressum Header -->
+    <div style="border-bottom:2px solid var(--green-pale);padding-bottom:1.5rem;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;">
+      <div style="width:48px;height:48px;background:var(--green-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">⚖️</div>
+      <div>
+        <p class="modal-label" style="margin-bottom:.15rem;">Rechtliches</p>
+        <h2 class="modal-title" style="margin-bottom:0;">Impressum</h2>
+      </div>
+    </div>
 
-    <h3 class="modal-h3">Angaben gemäß § 5 TMG</h3>
-    <p class="modal-p">Joshua Bek<br>JB Gartenarbeit<br>Reißer 17<br>78733 Aichhalden</p>
+    <!-- Angaben Kasten -->
+    <div style="background:var(--cream);border-radius:8px;padding:1.5rem 2rem;margin-bottom:2rem;border-left:3px solid var(--green-bright);">
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.75rem;">Angaben gemäß § 5 TMG</p>
+      <p style="font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.25rem;">Joshua Bek</p>
+      <p style="font-size:.93rem;color:var(--text-light);line-height:1.7;">JB Gartenarbeit<br>Reißer 17<br>78733 Aichhalden<br>Deutschland</p>
+    </div>
 
-    <h3 class="modal-h3">Kontakt</h3>
-    <p class="modal-p">Telefon: +49 170 3678809<br>E-Mail: j.bek@jb-gartenarbeit.de</p>
+    <!-- Kontakt Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+      <div style="background:var(--cream);border-radius:8px;padding:1.25rem 1.5rem;">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;">📞 Telefon</p>
+        <p style="font-size:.95rem;font-weight:700;color:var(--text-dark);">+49 170 3678809</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:1.25rem 1.5rem;">
+        <p style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;">✉️ E-Mail</p>
+        <p style="font-size:.95rem;font-weight:700;color:var(--green-bright);">j.bek@jb-gartenarbeit.de</p>
+      </div>
+    </div>
 
-    <h3 class="modal-h3">Umsatzsteuer</h3>
+    <!-- Trennlinie -->
+    <div style="height:1px;background:var(--green-pale);margin:1.5rem 0;"></div>
+
+    <h3 class="modal-h3" style="margin-top:0;">Umsatzsteuer</h3>
     <p class="modal-p">Joshua Bek ist Kleinunternehmer im Sinne von § 19 UStG. Es wird daher keine Umsatzsteuer berechnet und ausgewiesen.</p>
 
     <h3 class="modal-h3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
-    <p class="modal-p">Joshua Bek<br>Reißer 17<br>78733 Aichhalden</p>
+    <p class="modal-p">Joshua Bek · Reißer 17 · 78733 Aichhalden</p>
 
-    <h3 class="modal-h3">Streitschlichtung</h3>
-    <p class="modal-p">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a><br>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <div style="height:1px;background:var(--green-pale);margin:1.5rem 0;"></div>
+
+    <h3 class="modal-h3" style="margin-top:0;">Streitschlichtung</h3>
+    <p class="modal-p">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">ec.europa.eu/consumers/odr</a><br><br>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
     <h3 class="modal-h3">Haftung für Inhalte</h3>
     <p class="modal-p">Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
 
     <h3 class="modal-h3">Haftung für Links</h3>
-    <p class="modal-p">Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+    <p class="modal-p">Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+
+    <!-- Stand -->
+    <div style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--green-pale);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+      <p style="font-size:.78rem;color:var(--text-light);">Stand: Juni 2025</p>
+      <p style="font-size:.78rem;color:var(--text-light);">JB Gartenarbeit · Aichhalden</p>
+    </div>
   </div>
 </div>
 
