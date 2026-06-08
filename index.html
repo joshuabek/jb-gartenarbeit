@@ -285,8 +285,125 @@ footer a:hover{color:var(--gold)}
 
 <footer>
   <p>© 2025 <strong>JB Gartenarbeit</strong> · Mähservice &amp; Maschinenvermietung · Alle Rechte vorbehalten</p>
-  <p style="margin-top:.6rem;font-size:.75rem"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  <p style="margin-top:.6rem;font-size:.75rem"><a href="#" onclick="openModal('modal-impressum');return false;">Impressum</a> · <a href="#" onclick="openModal('modal-agb');return false;">AGB</a> · <a href="#" onclick="openModal('modal-datenschutz');return false;">Datenschutz</a></p>
 </footer>
+
+
+
+
+<!-- MODAL OVERLAYS -->
+
+<!-- Impressum Modal -->
+<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'modal-impressum')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-impressum')">✕</button>
+    <p class="modal-label">Rechtliches</p>
+    <h2 class="modal-title">Impressum</h2>
+
+    <h3 class="modal-h3">Angaben gemäß § 5 TMG</h3>
+    <p class="modal-p">Joshua Bek<br>JB Gartenarbeit<br>Reißer 17<br>78733 Aichhalden</p>
+
+    <h3 class="modal-h3">Kontakt</h3>
+    <p class="modal-p">Telefon: +49 170 3678809<br>E-Mail: j.bek@jb-gartenarbeit.de</p>
+
+    <h3 class="modal-h3">Umsatzsteuer</h3>
+    <p class="modal-p">Joshua Bek ist Kleinunternehmer im Sinne von § 19 UStG. Es wird daher keine Umsatzsteuer berechnet und ausgewiesen.</p>
+
+    <h3 class="modal-h3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <p class="modal-p">Joshua Bek<br>Reißer 17<br>78733 Aichhalden</p>
+
+    <h3 class="modal-h3">Streitschlichtung</h3>
+    <p class="modal-p">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a><br>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h3 class="modal-h3">Haftung für Inhalte</h3>
+    <p class="modal-p">Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+    <h3 class="modal-h3">Haftung für Links</h3>
+    <p class="modal-p">Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+  </div>
+</div>
+
+<!-- AGB Modal -->
+<div class="modal-overlay" id="modal-agb" onclick="closeModalOutside(event,'modal-agb')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-agb')">✕</button>
+    <p class="modal-label">Rechtliches</p>
+    <h2 class="modal-title">Allgemeine Geschäftsbedingungen</h2>
+
+    <h3 class="modal-h3">§ 1 Geltungsbereich</h3>
+    <p class="modal-p">Diese AGB gelten für alle Verträge zwischen Joshua Bek – JB Gartenarbeit und dem Auftraggeber über Mäharbeiten, Gartendienstleistungen sowie die Vermietung von Gartengeräten und Maschinen.</p>
+
+    <h3 class="modal-h3">§ 2 Vertragsschluss</h3>
+    <p class="modal-p">Ein Vertrag kommt zustande, wenn der Auftragnehmer ein Angebot des Auftraggebers schriftlich, per E-Mail oder mündlich bestätigt. Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern nicht ausdrücklich als verbindlich bezeichnet.</p>
+
+    <h3 class="modal-h3">§ 3 Preise und Zahlung</h3>
+    <p class="modal-p">Alle genannten Preise sind Nettopreise gemäß § 19 UStG (Kleinunternehmerregelung) – es wird keine Umsatzsteuer berechnet. Zahlung ist nach Leistungserbringung oder Rückgabe des Mietgeräts fällig. Zahlungsmittel: Barzahlung oder Überweisung.</p>
+
+    <h3 class="modal-h3">§ 4 Mietservice – Besondere Bedingungen</h3>
+    <p class="modal-p">Der Mieter ist verpflichtet, die gemieteten Geräte sorgfältig und bestimmungsgemäß zu verwenden. Bei Beschädigung oder Verlust durch unsachgemäße Nutzung haftet der Mieter für den entstandenen Schaden. Geräte sind gereinigt und im Originalzustand zurückzugeben. Eine Einweisung erfolgt vor der Übergabe.</p>
+
+    <h3 class="modal-h3">§ 5 Kündigung und Stornierung</h3>
+    <p class="modal-p">Stornierungen sind bis 24 Stunden vorher kostenfrei möglich. Bei späterer Stornierung oder Nichterscheinen behält sich der Auftragnehmer vor, eine Aufwandspauschale in Rechnung zu stellen.</p>
+
+    <h3 class="modal-h3">§ 6 Haftung</h3>
+    <p class="modal-p">Der Auftragnehmer haftet nur für Schäden durch grobe Fahrlässigkeit oder Vorsatz. Eine Haftung für leichte Fahrlässigkeit ist ausgeschlossen, soweit keine wesentlichen Vertragspflichten verletzt werden.</p>
+
+    <h3 class="modal-h3">§ 7 Gerichtsstand und anwendbares Recht</h3>
+    <p class="modal-p">Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist, soweit gesetzlich zulässig, Aichhalden.</p>
+  </div>
+</div>
+
+<!-- Datenschutz Modal -->
+<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'modal-datenschutz')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-datenschutz')">✕</button>
+    <p class="modal-label">Rechtliches</p>
+    <h2 class="modal-title">Datenschutzerklärung</h2>
+
+    <h3 class="modal-h3">1. Verantwortlicher</h3>
+    <p class="modal-p">Joshua Bek – JB Gartenarbeit<br>Reißer 17, 78733 Aichhalden<br>Telefon: +49 170 3678809<br>E-Mail: j.bek@jb-gartenarbeit.de</p>
+
+    <h3 class="modal-h3">2. Erhebung und Speicherung personenbezogener Daten</h3>
+    <p class="modal-p">Beim Besuch dieser Website werden durch den Hosting-Anbieter automatisch Server-Log-Dateien gespeichert (Browsertyp, Betriebssystem, Referrer URL, IP-Adresse, Uhrzeit). Diese Daten sind nicht bestimmten Personen zuordenbar und werden nicht mit anderen Datenquellen zusammengeführt.</p>
+
+    <h3 class="modal-h3">3. Kontaktformular</h3>
+    <p class="modal-p">Wenn Sie das Kontaktformular nutzen, werden Ihre Daten (Name, E-Mail, Telefon, Nachricht) zur Bearbeitung Ihrer Anfrage verwendet und nicht ohne Einwilligung an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+
+    <h3 class="modal-h3">4. Cookies &amp; Tracking</h3>
+    <p class="modal-p">Diese Website verwendet derzeit keine Cookies und kein Tracking. Sollten künftig Analyse-Tools eingesetzt werden, wird diese Erklärung aktualisiert und eine Cookie-Einwilligung eingeholt.</p>
+
+    <h3 class="modal-h3">5. Google Fonts</h3>
+    <p class="modal-p">Diese Website lädt Schriftarten von Google Fonts. Dabei wird eine Verbindung zu Google-Servern hergestellt und Ihre IP-Adresse übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Infos: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a>.</p>
+
+    <h3 class="modal-h3">6. Ihre Rechte</h3>
+    <p class="modal-p">Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18) und Datenübertragbarkeit (Art. 20 DSGVO). Kontakt: j.bek@jb-gartenarbeit.de</p>
+
+    <h3 class="modal-h3">7. Beschwerderecht</h3>
+    <p class="modal-p">Zuständige Aufsichtsbehörde: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Postfach 10 29 32, 70025 Stuttgart.<br><a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank">www.baden-wuerttemberg.datenschutz.de</a></p>
+  </div>
+</div>
+
+<script>
+function openModal(id){
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e,id){
+  if(e.target===document.getElementById(id)) closeModal(id);
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.active').forEach(function(m){
+      m.classList.remove('active');
+      document.body.style.overflow='';
+    });
+  }
+});
+</script>
 
 </body>
 </html>
