@@ -294,7 +294,7 @@ footer a:hover{color:var(--gold)}
 <!-- MODAL OVERLAYS -->
 
 <!-- Impressum Modal -->
-<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'modal-impressum')">
+<div class="modal-overlay" id="modal-impressum" style="display:none;" onclick="closeModalOutside(event,'modal-impressum')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-impressum')">✕</button>
     <!-- Impressum Header -->
@@ -354,7 +354,7 @@ footer a:hover{color:var(--gold)}
 </div>
 
 <!-- AGB Modal -->
-<div class="modal-overlay" id="modal-agb" onclick="closeModalOutside(event,'modal-agb')">
+<div class="modal-overlay" id="modal-agb" style="display:none;" onclick="closeModalOutside(event,'modal-agb')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-agb')">✕</button>
     <p class="modal-label">Rechtliches</p>
@@ -384,7 +384,7 @@ footer a:hover{color:var(--gold)}
 </div>
 
 <!-- Datenschutz Modal -->
-<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'modal-datenschutz')">
+<div class="modal-overlay" id="modal-datenschutz" style="display:none;" onclick="closeModalOutside(event,'modal-datenschutz')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-datenschutz')">✕</button>
     <p class="modal-label">Rechtliches</p>
@@ -415,11 +415,15 @@ footer a:hover{color:var(--gold)}
 
 <script>
 function openModal(id){
-  document.getElementById(id).classList.add('active');
+  var el = document.getElementById(id);
+  el.style.display='';
+  el.classList.add('active');
   document.body.style.overflow='hidden';
 }
 function closeModal(id){
-  document.getElementById(id).classList.remove('active');
+  var el = document.getElementById(id);
+  el.classList.remove('active');
+  el.style.display='none';
   document.body.style.overflow='';
 }
 function closeModalOutside(e,id){
@@ -429,6 +433,7 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
     document.querySelectorAll('.modal-overlay.active').forEach(function(m){
       m.classList.remove('active');
+      m.style.display='none';
       document.body.style.overflow='';
     });
   }
