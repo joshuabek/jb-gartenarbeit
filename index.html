@@ -268,16 +268,17 @@ footer a:hover{color:var(--gold)}
   <h2 class="section-title">Jetzt anfragen</h2>
   <p class="section-desc">Kostenloses Angebot für Mähservice oder Maschinenvermietung – einfach Formular ausfüllen.</p>
   <div class="kontakt-wrap">
+    <form id="kontakt-form" action="https://formspree.io/f/mrevkkyk" method="POST">
     <div class="form-row">
-      <div class="form-group"><label>Vorname</label><input type="text" placeholder="Max"></div>
-      <div class="form-group"><label>Nachname</label><input type="text" placeholder="Mustermann"></div>
+      <div class="form-group"><label for="vorname">Vorname</label><input id="vorname" type="text" name="vorname" placeholder="Max"></div>
+      <div class="form-group"><label for="nachname">Nachname</label><input id="nachname" type="text" name="nachname" placeholder="Mustermann"></div>
     </div>
-    <div class="form-group"><label>E-Mail-Adresse</label><input type="email" placeholder="max@beispiel.de"></div>
-    <div class="form-group"><label>Telefonnummer</label><input type="tel" placeholder="+49 0000 000000"></div>
+    <div class="form-group"><label for="email">E-Mail-Adresse</label><input id="email" type="email" name="email" placeholder="max@beispiel.de"></div>
+    <div class="form-group"><label for="telefon">Telefonnummer</label><input id="telefon" type="tel" name="telefon" placeholder="+49 0000 000000"></div>
     <div class="form-group">
-      <label>Anfrage betrifft</label>
-      <select>
-        <option>Bitte wählen...</option>
+      <label for="betreff">Anfrage betrifft</label>
+      <select id="betreff" name="betreff">
+        <option value="">Bitte wählen...</option>
         <option>Mähservice – Privatgarten</option>
         <option>Mähservice – Gewerbe / Firmengelände</option>
         <option>Mähservice – Böschung / Sonderfläche</option>
@@ -287,8 +288,10 @@ footer a:hover{color:var(--gold)}
         <option>Sonstiges</option>
       </select>
     </div>
-    <div class="form-group"><label>Ihre Nachricht</label><textarea placeholder="Beschreiben Sie kurz Ihre Fläche oder Ihr Vorhaben – z. B. Größe, gewünschter Termin, besondere Anforderungen …"></textarea></div>
-    <button class="form-submit">Anfrage kostenlos senden 🌿</button>
+    <div class="form-group"><label for="nachricht">Ihre Nachricht</label><textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihre Fläche oder Ihr Vorhaben – z. B. Größe, gewünschter Termin, besondere Anforderungen …"></textarea></div>
+    <div id="form-feedback" style="display:none;padding:.75rem 1rem;border-radius:4px;font-size:.88rem;font-weight:700;margin-bottom:.75rem;text-align:center;"></div>
+    <button type="submit" class="form-submit">Anfrage kostenlos senden 🌿</button>
+    </form>
   </div>
   <div class="kontakt-info">
     <div class="kontakt-item">📞 <span>Auf Anfrage</span></div>
@@ -447,6 +450,69 @@ document.addEventListener('keydown',function(e){
     document.body.style.overflow='';
   }
 });
+</script>
+
+<script>
+(function(){
+  var form = document.getElementById('kontakt-form');
+  var feedback = document.getElementById('form-feedback');
+  if(!form) return;
+
+  function showFeedback(msg, ok){
+    feedback.style.display = 'block';
+    feedback.style.background = ok ? '#e8f5e9' : '#fdecea';
+    feedback.style.color = ok ? '#2d6b2d' : '#c62828';
+    feedback.style.border = '1px solid ' + (ok ? '#a5d6a7' : '#ef9a9a');
+    feedback.textContent = msg;
+    feedback.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  /* Klick auf Button – manuelle Validierung vor dem Submit */
+  var btn = form.querySelector('.form-submit');
+  btn.addEventListener('click', function(){
+    var vorname  = form.querySelector('[name="vorname"]').value.trim();
+    var nachname = form.querySelector('[name="nachname"]').value.trim();
+    var email    = form.querySelector('[name="email"]').value.trim();
+    var betreff  = form.querySelector('[name="betreff"]').value;
+
+    if(!vorname || !nachname || !email || !betreff){
+      showFeedback('⚠️ Bitte füllen Sie alle Pflichtfelder aus (Vorname, Nachname, E-Mail, Anfrage betrifft).', false);
+      return;
+    }
+    feedback.style.display = 'none';
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet …';
+    feedback.style.display = 'none';
+
+    fetch('https://formspree.io/f/mrevkkyk', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      if(res.ok){
+        showFeedback('✅ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns bald.', true);
+        form.reset();
+      } else {
+        return res.json().then(function(data){
+          var msg = (data && data.errors) ? data.errors.map(function(x){return x.message;}).join(', ') : 'Unbekannter Fehler';
+          showFeedback('❌ Fehler: ' + msg, false);
+        });
+      }
+    })
+    .catch(function(){
+      showFeedback('❌ Netzwerkfehler. Bitte versuchen Sie es erneut.', false);
+    })
+    .finally(function(){
+      btn.textContent = 'Anfrage kostenlos senden 🌿';
+      btn.disabled = false;
+    });
+  });
+})();
 </script>
 
 </body>
